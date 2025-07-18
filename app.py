@@ -171,6 +171,10 @@ def export_csv():
             yield ','.join([str(x) for x in row]) + '\n'
     return Response(generate(), mimetype='text/csv', headers={"Content-Disposition": "attachment;filename=all_sessions.csv"})
 
+@app.route("/", methods=["GET"])
+def home():
+    return "Flask backend is running 🚀"
+
 if __name__ == '__main__':
     init_db()
     app.run(debug=True, host='0.0.0.0') 
